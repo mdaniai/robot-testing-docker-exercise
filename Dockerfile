@@ -8,10 +8,11 @@ RUN pip3 install --upgrade pip
 RUN apk --no-cache upgrade && apk add --no-cache chromium chromium-chromedriver
 RUN apk add libexif udev
 
-# ROBOT + LIBRARIES
+# LIBRARIES
 COPY requirements.txt /tmp/requirements.txt
-RUN  pip3 install -r /tmp/requirements.txt
+RUN pip3 install -r /tmp/requirements.txt
+
 WORKDIR /app
 COPY . .
 
-CMD ["robot", "--outputdir", "reports", "robots"]
+CMD [ "robot", "--outputdir", "reports", "robots" ]
