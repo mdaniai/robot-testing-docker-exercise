@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         GIT_URL = 'git@github.com:mdaniai/robot-testing-docker-exercise.git'
-        BRANCH = 'main'
+        BRANCH = 'master'
         ROBOT = '/home/user/.local/bin/robot'
         CHANNEL = '#jenkins'
         IMAGE = 'my-robot-test'
