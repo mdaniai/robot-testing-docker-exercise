@@ -34,7 +34,7 @@ pipeline {
         stage('Run') {
             steps {
                 echo 'Run Test'
-                sh "${DOCKER_APP} run -rm ${IMAGE}"
+                sh "${DOCKER_APP} run --rm ${IMAGE}"
             }
         }
     }
@@ -44,11 +44,11 @@ pipeline {
         }
         success {
             echo 'Run only on success build'
-            slackSend(channel: "${CHANNEL}", message: 'Build deployed successfully')
+            slackSend(channel: "${CHANNEL}", message: "Build deployed successfully")
         }
         failure {
             echo 'Run only on failed build'
-            slackSend(channel: "${CHANNEL}", message: 'Build failed to deploy')
+            slackSend(channel: "${CHANNEL}", message: "Build failed to deploy")
         }
     }
 }
